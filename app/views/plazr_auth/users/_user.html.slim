@@ -1,0 +1,18 @@
+/ args:
+    user
+
+
+#field
+  | Name: #{user.name}
+
+#field
+  | Roles:
+  ul.user-roles
+    - user.roles.each do |role|
+      li= role.name.titleize
+
+.field
+  | Accounts:
+  ul.user-authorizations
+    - user.authorizations.each do |auth|
+      li= "#{auth.provider.titleize} [#{auth.email}, #{auth.id}]"
