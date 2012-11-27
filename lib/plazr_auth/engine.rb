@@ -22,6 +22,9 @@ module PlazrAuth
 
     config.i18n.load_path += Dir[PlazrAuth::Engine.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    config.generators.integration_tool :rspec
+    config.generators.test_framework :rspec
+
 
     def self.app_path
       File.expand_path '../../app', called_from

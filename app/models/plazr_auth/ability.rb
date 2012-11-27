@@ -19,7 +19,8 @@ module PlazrAuth
 
 
     def user
-      can :profile, PlazrAuth::User
+      #can :profile, PlazrAuth::User
+      can :manage, :all
     end
 
 

@@ -6,7 +6,6 @@ module PlazrAuth
     load_and_authorize_resource :class => 'PlazrAuth::User'
 
     def index
-      render json: current_user
     end
 
     def show
