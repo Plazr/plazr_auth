@@ -5,6 +5,11 @@ require 'spork'
 #require 'spork/ext/ruby-debug'
 
 Spork.prefork do
+  require 'simplecov'
+  #puts SimpleCov.root
+  SimpleCov.root(File.expand_path '../../../..', __FILE__)
+  root.start 'rails'
+
   ENV["RAILS_ENV"] ||= 'test'
 
   require File.expand_path("../../config/environment", __FILE__)

@@ -205,26 +205,35 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+  require 'openid/store/filesystem'
+  require 'omniauth-twitter'
+
   unless Rails.env.test?
     config.omniauth :facebook, "331812513561655", "37f920bb0e998f8eebc124c97ee901da",
       {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
-      
-    require 'openid/store/filesystem'
+
     config.omniauth :open_id, 
                     :store => OpenID::Store::Filesystem.new('/tmp'), 
                     :name => 'google', 
                     :identifier => 'https://www.google.com/accounts/o8/id', 
-                    :require => 'omniauth-openid'             
+                    :require => 'omniauth-openid'
+
+    #config.omniauth :twitter, "5FvLnTFu6MWVkKvZRUuUxQ", "7dnx0Ap2bbrH7NhtnVtsiEkW9r92jx9IXid2MDd1C54",
+    #  :strategy_class => OmniAuth::Strategies::Twitter
+
   else
     config.omniauth :facebook, "foo", "bar",
       { :scope => 'email, offline_access' }
       
-    require 'openid/store/filesystem'
     config.omniauth :open_id, 
                     :store => OpenID::Store::Filesystem.new('/tmp'), 
                     :name => 'google', 
                     :identifier => "foobar", 
                     :require => 'omniauth-openid'
+
+    #config.omniauth :twitter, "foo", "bar",
+    #  :strategy_class => OmniAuth::Strategies::Twitter
   end
 
 

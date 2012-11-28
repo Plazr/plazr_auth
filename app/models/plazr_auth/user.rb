@@ -51,6 +51,10 @@ module PlazrAuth
     def role?(role)
       self.roles.where(:name => role).any?
     end
-    
+
+    def to_s
+      name
+    end
+
   end
 end
