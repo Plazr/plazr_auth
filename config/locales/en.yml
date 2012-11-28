@@ -1,0 +1,10 @@
+en:
+  plazr_auth:
+    links:
+      profile: View Profile
+      edit: Edit Profile
+      sign_out: TheSignOut
+      log_in: Log In
+      sign_up: Sign Up
+      forgot: Forgot Password
+      confirmation: Confirm

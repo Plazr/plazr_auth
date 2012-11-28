@@ -1,0 +1,33 @@
+h2 User Edit
+
+= form_for @user, :url => admin_user_path(@user), :html => { :method => :put } do |f|
+  = devise_error_messages!
+
+  .field
+    = f.label       :email
+    = f.email_field :email
+
+  .field
+    = f.label      :first_name
+    = f.text_field :first_name
+
+  .field
+    = f.label      :last_name
+    = f.text_field :last_name
+
+  .field
+    = f.label          :password
+    = f.password_field :password, :autocomplete => :off
+
+  .field
+    = f.label          :password_confirmation
+    = f.password_field :password_confirmation, :autocomplete => :off
+
+  .field
+    = f.label          :current_password
+    = f.password_field :current_password
+
+  .actions
+    = f.submit 'Update'
+    = link_to 'Delete account', admin_user_path(@user), :method => :delete, :data => { :confirm => 'Are you sure' }
+    = link_to 'Back', :back

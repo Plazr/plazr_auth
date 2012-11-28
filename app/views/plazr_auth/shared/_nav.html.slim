@@ -1,0 +1,16 @@
+header
+  h1 NAV
+
+ul#play-auth-nav
+  - if user_signed_in?
+    li= link_to t('plazr_auth.links.profile'),  plazr_auth.profile_path(current_user)
+    li= link_to t('plazr_auth.links.edit'),     plazr_auth.edit_user_registration_path
+    li= link_to t('plazr_auth.links.sign_out'), plazr_auth.destroy_user_session_path, :method => :delete
+
+    - if current_user.admin?
+      li= link_to 'Admin', plazr_auth.admin_path
+
+  - else
+    li= link_to t('plazr_auth.links.log_in'),  plazr_auth.new_user_session_path
+    li= link_to t('plazr_auth.links.sign_up'), plazr_auth.new_user_registration_path
+    li= link_to t('plazr_auth.links.forgot'),  new_password_path(:user)
