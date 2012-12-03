@@ -20,6 +20,7 @@ module PlazrAuth
 
     def user
       #can :profile, PlazrAuth::User
+      # TODO fix this
       can :manage, :all
     end
 

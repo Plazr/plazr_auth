@@ -11,6 +11,8 @@ require 'uuidtools'
 require 'cancan'
 require 'slim'
 
+require 'pry' unless Rails.env.production?
+
 
 module PlazrAuth
   def self.root

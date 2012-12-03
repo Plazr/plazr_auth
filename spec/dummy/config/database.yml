@@ -34,6 +34,7 @@ users_development:
 users_test:
   <<: *test
   database: db/users_test.sqlite3
+  timeout: 5000
 
 users_production:
   <<: *production
