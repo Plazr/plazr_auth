@@ -6,4 +6,4 @@ user = PlazrAuth::User.create  :email        => 'mpalhas@gmail.com',
                     :password     => 'mpalhas',
                     :confirmed_at => Time.now
 
-user.roles << PlazrAuth::Role.find_by_name('Admin')
+user.roles << PlazrAuth::Role.find_by_name('admin')

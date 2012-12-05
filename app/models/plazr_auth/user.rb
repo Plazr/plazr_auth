@@ -44,16 +44,23 @@ module PlazrAuth
       end
     end
 
-    def admin?
-      self.role?('Admin')
-    end
-
     def role?(role)
       self.roles.where(:name => role).any?
     end
 
     def to_s
       name
+    end
+
+    def method_missing(method_name, *args, &block)
+      if method_name.to_s =~ /^is_(.*)\?$/ && PZA::Role.underscored_role_names.include?($1)
+        self.class.send :define_method, method_name do
+          self.role?($1)
+        end
+        self.send method_name
+      else
+        super
+      end
     end
 
   end
