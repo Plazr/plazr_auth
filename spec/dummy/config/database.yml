@@ -38,4 +38,4 @@ users_test:
 
 users_production:
   <<: *production
-  database: <%= ENV['PLAZR_ROOT'] %>/users_production.sqlite3 # TODO this should later be changed to use a global database
+  database: <%= ENV['PLAZR_ROOT'] %>/shared/users_production.sqlite3 # TODO this should later be changed to use a global database
