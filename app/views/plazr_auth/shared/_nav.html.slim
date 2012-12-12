@@ -7,7 +7,7 @@ ul#play-auth-nav
     li= link_to t('plazr_auth.links.edit'),     plazr_auth.edit_user_registration_path
     li= link_to t('plazr_auth.links.sign_out'), plazr_auth.destroy_user_session_path, :method => :delete
 
-    - if current_user.admin?
+    - if current_user.is_admin?
       li= link_to 'Admin', plazr_auth.admin_path
 
   - else
