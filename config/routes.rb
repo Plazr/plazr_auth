@@ -20,6 +20,4 @@ PlazrAuth::Engine.routes.draw do
     resources :users
   end
   
-  resources :paypal_accounts
-
 end
