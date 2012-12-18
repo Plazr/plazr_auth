@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127170046) do
+ActiveRecord::Schema.define(:version => 20121218142552) do
+
+  create_table "plazr_auth_paypal_accounts", :force => true do |t|
+    t.integer "store_id"
+    t.string  "api_password"
+    t.string  "api_username"
+    t.string  "signature"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
