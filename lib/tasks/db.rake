@@ -15,7 +15,7 @@ namespace :db do
     task :load_schema do
       # like db:test:purge
       abcs = ActiveRecord::Base.configurations
-      ActiveRecord::Base.connection.recreate_database(abcs['sers_test']['database'], mysql_creation_options(abcs['foo_test']))
+      ActiveRecord::Base.connection.recreate_database(abcs['users_test']['database'], mysql_creation_options(abcs['users_test']))
       # like db:test:load_schema
       ActiveRecord::Base.establish_connection('users_test')
       ActiveRecord::Schema.verbose = false
