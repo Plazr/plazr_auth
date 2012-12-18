@@ -1,12 +1,11 @@
 module PlazrAuth
-  class PypalAccount < ActiveRecord::Base
+  class PaypalAccount < ActiveRecord::Base
     include PlazrAuth::SharedModel
     
-    #belongs_to :store
-    
-    attr_accessible :api_password, 
+    attr_accessible :store_id,
+                    :api_password, 
                     :api_username, 
                     :signature
-    
+                    
   end
 end
