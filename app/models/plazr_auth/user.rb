@@ -13,8 +13,8 @@ module PlazrAuth
             :rememberable,
             :trackable,
             :validatable,
-            :omniauthable,
-            :confirmable
+            :omniauthable#,
+            #:confirmable
 
     devise  :encryptor => :sha1
 
