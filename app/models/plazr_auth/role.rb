@@ -1,6 +1,7 @@
 module PlazrAuth
   class Role < ActiveRecord::Base
     include PlazrAuth::SharedModel
+    include PlazrAuth::ParanoiaInterface
 
     before_save :underscore_name
 
