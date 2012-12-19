@@ -2,6 +2,7 @@ module PlazrAuth
   
   module SharedModel
     extend ActiveSupport::Concern
+    include PlazrAuth::ParanoiaInterface
 	
     included do
       class_eval do

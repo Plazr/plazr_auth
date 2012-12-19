@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan',             '>= 1.6.8'
   s.add_dependency 'factory_girl_rails', '~> 4.0'
   s.add_dependency 'slim-rails'
+  s.add_dependency 'paranoia'
+  s.add_dependency 'paranoia_uniqueness_validator'
 
 
   s.add_development_dependency 'sqlite3'
