@@ -2,6 +2,7 @@
 module PlazrAuth
   class Authorization < ActiveRecord::Base
     include PlazrAuth::SharedModel
+    include PlazrAuth::ParanoiaInterface
 
     belongs_to :user
 

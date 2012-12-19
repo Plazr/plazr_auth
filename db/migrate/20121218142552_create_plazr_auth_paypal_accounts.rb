@@ -8,7 +8,8 @@ class CreatePlazrAuthPaypalAccounts < ActiveRecord::Migration
       t.integer :store_id
       t.string :api_password 
       t.string :api_username
-      t.string :signature      
+      t.string :signature
+      t.datetime :deleted_at
     end
   end
 end

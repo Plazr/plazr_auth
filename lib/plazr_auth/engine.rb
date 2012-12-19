@@ -9,6 +9,8 @@ require 'omniauth-facebook'
 require 'omniauth-openid'
 require 'uuidtools'
 require 'cancan'
+require 'paranoia'
+require 'paranoia_uniqueness_validator'
 require 'slim'
 
 require 'pry' unless Rails.env.production?

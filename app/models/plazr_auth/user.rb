@@ -2,6 +2,7 @@
 module PlazrAuth
   class User < ActiveRecord::Base
     include PlazrAuth::SharedModel
+    include PlazrAuth::ParanoiaInterface
 
     #### Devise ####
 
