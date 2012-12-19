@@ -6,3 +6,10 @@ gemspec
 gem 'jquery-rails'
 
 gem 'pry-rails'
+
+group :development, :test do
+  gem 'rb-fsevent', require: false
+  gem 'growl',      require: false
+  gem 'rb-inotify', require: false
+  gem 'libnotify',  require: false
+end

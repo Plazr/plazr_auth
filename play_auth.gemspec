@@ -43,15 +43,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
   s.add_development_dependency "database_cleaner"
 
-  # Mac specific gems
-  if RUBY_PLATFORM =~ /darwin/i
-    s.add_development_dependency 'rb-fsevent'
-    s.add_development_dependency 'growl'
-  end
-
-  # Linux specific gems
-  if RUBY_PLATFORM =~ /linux/i
-    s.add_development_dependency 'rb-inotify'
-    s.add_development_dependency 'libnotify'
-  end
 end
