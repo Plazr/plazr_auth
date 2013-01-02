@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan',             '>= 1.6.8'
   s.add_dependency 'factory_girl_rails', '~> 4.0'
   s.add_dependency 'slim-rails'
+  s.add_dependency 'paranoia'
+  s.add_dependency 'paranoia_uniqueness_validator'
 
 
   s.add_development_dependency 'sqlite3'
@@ -43,15 +45,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
   s.add_development_dependency "database_cleaner"
 
-  # Mac specific gems
-  if RUBY_PLATFORM =~ /darwin/i
-    s.add_development_dependency 'rb-fsevent'
-    s.add_development_dependency 'growl'
-  end
-
-  # Linux specific gems
-  if RUBY_PLATFORM =~ /linux/i
-    s.add_development_dependency 'rb-inotify'
-    s.add_development_dependency 'libnotify'
-  end
 end

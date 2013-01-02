@@ -1,6 +1,7 @@
 module PlazrAuth
   class RoleUser < ActiveRecord::Base
     include PlazrAuth::SharedModel
+    include PlazrAuth::ParanoiaInterface
 
     # N to N link model
 
