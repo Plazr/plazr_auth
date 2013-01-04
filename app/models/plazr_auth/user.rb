@@ -35,6 +35,9 @@ module PlazrAuth
                     :roles,
                     :confirmed_at
 
+    ## Callbacks ##
+    after_commit :add_user_role
+
 
     def name
       full_name = "#{first_name} #{last_name}".strip
@@ -63,6 +66,14 @@ module PlazrAuth
         super
       end
     end
+
+    protected
+
+      def add_user_role
+        self.roles << Role.find_by_name('user') unless self.roles.any?
+        #user_role = Role.find_by_name('user')
+        #self.role_users << RoleUser.find_or_create_by_user_id_and_role_id(self.id, role.id) if self.roles.size == 0
+      end
 
   end
 end
