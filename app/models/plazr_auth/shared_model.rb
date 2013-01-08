@@ -7,13 +7,14 @@ module PlazrAuth
     included do
 	class_eval do
 	  if Rails.env.production?
-   	    ActiveRecord::Base.establish_connection( {
+   	    establish_connection(
 					:adapter => 'mysql2',
 					:host => 'plazrshared.c8eex9xfeq0r.eu-west-1.rds.amazonaws.com',
-					:user => 'plazr',
+					:username => 'plazr',
 					:password => 'plazrplazr',
-					:database => 'plazrshared'
-					})
+					:database => 'plazrshared',
+					:port => 3306
+					)
 	  else
         establish_connection "users_#{Rails.env}"
       end
