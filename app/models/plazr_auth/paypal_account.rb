@@ -1,4 +1,5 @@
 module PlazrAuth
+  # Class representing the paypal information needed by the user
   class PaypalAccount < ActiveRecord::Base
     include PlazrAuth::SharedModel
     include PlazrAuth::ParanoiaInterface

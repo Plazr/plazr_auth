@@ -1,4 +1,5 @@
 module PlazrAuth
+  # Class for representing the relation between the user and role models
   class RoleUser < ActiveRecord::Base
     include PlazrAuth::SharedModel
     include PlazrAuth::ParanoiaInterface

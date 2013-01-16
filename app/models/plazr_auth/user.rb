@@ -1,5 +1,6 @@
 # author Naps62
 module PlazrAuth
+  # Class representing the user
   class User < ActiveRecord::Base
     include PlazrAuth::SharedModel
     include PlazrAuth::ParanoiaInterface
@@ -38,7 +39,7 @@ module PlazrAuth
     ## Callbacks ##
     after_commit :add_user_role
 
-
+    # Get the full name of the user
     def name
       full_name = "#{first_name} #{last_name}".strip
       if full_name.size > 0
@@ -48,6 +49,7 @@ module PlazrAuth
       end
     end
 
+    # Check if the user has the given role
     def role?(role)
       self.roles.where(:name => role).any?
     end
@@ -69,6 +71,7 @@ module PlazrAuth
 
     protected
 
+      # Add the user role
       def add_user_role
         self.roles << Role.find_by_name('user') unless self.roles.any?
         #user_role = Role.find_by_name('user')

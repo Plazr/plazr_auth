@@ -1,5 +1,6 @@
 # author Naps62
 module PlazrAuth
+  # Class representing the authorization information relative to the user
   class Authorization < ActiveRecord::Base
     include PlazrAuth::SharedModel
     include PlazrAuth::ParanoiaInterface

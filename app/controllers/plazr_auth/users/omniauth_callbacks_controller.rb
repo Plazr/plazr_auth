@@ -1,16 +1,17 @@
 # @autor Naps62
 class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  # auth for facebook
+  # Authentication for facebook account
   def facebook
     oauthorize 'Facebook'
   end
 
-  # auth for google
+  # Authentication for google account
   def google
     oauthorize 'Google'
   end
 
+  # Authentication for twitter account
   def twitter
     oauthorize 'Twitter'
   end
@@ -19,8 +20,7 @@ class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksC
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
-  # auth (generic)
-  # find user that matches oauth request
+  # Generic authentication. Find the user that matches oauth request
   def oauthorize(kind)
     current_user ||= (params[:user]) ? PlazrAuth::User.find(params[:user]) : nil
     @user = find_for_oauth(kind, request.env['omniauth.auth'], current_user)
@@ -48,6 +48,7 @@ class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksC
   #
   private
 
+    # Get the user from the different authorization processes
     def find_for_oauth(provider, token, resource = nil)
       auth_data = get_auth_data(provider, token)
       debugger
@@ -89,7 +90,7 @@ class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksC
       return user
     end
 
-    # auth data independent from provider
+    # Authentication data independent from provider
     def get_auth_data(provider, token)
       case provider
         when 'Facebook'
@@ -123,6 +124,7 @@ class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksC
       end
     end
 
+    # Get a user with the given provider id
     def find_for_oauth_by_uid(uid)
       user = nil
       if auth = PlazrAuth::Authorization.find_by_uid(uid.to_s)
@@ -131,6 +133,7 @@ class PlazrAuth::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksC
       return user
     end
 
+    # Get a user with the given email
     def find_for_oauth_by_email(email)
       if user = PlazrAuth::User.find_by_email(email)
         user

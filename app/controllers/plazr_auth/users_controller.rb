@@ -8,11 +8,13 @@ module PlazrAuth
     def index
     end
 
+    # Get a user with the given id and its providers
     def show
       @user = PlazrAuth::User.find params[:id]
       @providers = @user.authorizations.map(&:provider)
     end
 
+    # Get the providers with the current users
     def profile
       @user = current_user
       @providers = @user.authorizations.map(&:provider)
