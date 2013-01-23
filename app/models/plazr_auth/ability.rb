@@ -29,5 +29,14 @@ module PlazrAuth
       can :manage, :all
     end
 
+
+    def method_missing(method, *args, &block)
+    	if method =~ /admin\_([0-9]+)/
+    	  return
+    	else
+    	  super
+    	end
+    end
+
   end
 end
