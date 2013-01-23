@@ -7,9 +7,6 @@ gem 'jquery-rails'
 
 gem 'pry-rails'
 
-group :production do
-  gem 'mysql2'
-end
 
 group :development, :test do
   gem 'rb-fsevent', require: false
