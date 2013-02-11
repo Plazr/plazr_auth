@@ -1,9 +1,9 @@
 module PlazrAuth
-  
+
   module SharedModel
     extend ActiveSupport::Concern
     include PlazrAuth::ParanoiaInterface
-	
+
     included do
       class_eval do
 	  #if Rails.env.production?
@@ -16,7 +16,7 @@ module PlazrAuth
 	  #			:port => 3306
 	  #			)
 	  #else
-        establish_connection "users_#{Rails.env}"
+        # establish_connection "users_#{Rails.env}"
       #end
 	  end
     end
