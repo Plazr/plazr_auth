@@ -16,7 +16,7 @@ module PlazrAuth
 	  #			:port => 3306
 	  #			)
 	  #else
-        # establish_connection "users_#{Rails.env}"
+        establish_connection "users_#{Rails.env}"
       #end
 	  end
     end
